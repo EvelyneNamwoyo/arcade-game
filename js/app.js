@@ -46,13 +46,14 @@ class Player{
     constructor(x,y){
         this.sprite = 'images/char-boy.png';
         this.x = 0;
-        this.y = 430;
+        this.y = 415;
+        this.leftBoundary=0; 
+        this.rightBoundary = 415; 
+        this.upBoundary = 0;
+        this.downBoundary = 415
     }
     update(dt){
-        // width = 500;
-        // while(){
-
-        // }
+        
 
     }
 
@@ -60,8 +61,21 @@ class Player{
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);  
     }
 
-    handleInput(){
-
+    handleInput(move){
+        // This if statement moves a player to the left
+        // As long as they are not past their left boundary
+        if(move=="left" && this.x>this.leftBoundary){
+            this.x-=30;
+        }
+        else if (move == "up" && this.y>this.upBoundary){
+                this.y-=50;
+        }
+        else if (move=="right" && this.x<this.rightBoundary){
+                this.x+=30;
+        }
+        else if (move=="down" && this.y<this.downBoundary){
+            this.y+=50
+        }
     }
 }
 // Now write your own player class
