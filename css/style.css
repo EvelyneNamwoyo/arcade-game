@@ -1,3 +1,28 @@
 body {
     text-align: center;
 }
+.modal p{
+    color: rgb(110, 10, 89);
+}
+
+@media screen and (max-width: 400px) {
+	canvas{
+		max-width: 360px;
+		min-height: 450px;
+
+	}
+
+}
+button{
+    color: rgb(125, 78, 129); 
+    background: transparent; 
+    border-radius: 6px;
+}
+button:hover {
+    background-color: #008CBA;
+    color: white;
+}
+dialog{
+    background-color: darkturquoise;
+    border: 0 mediumpurple;
+}
