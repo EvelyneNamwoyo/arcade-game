@@ -20,6 +20,7 @@
 // Enemy.prototype.render = function() {
 //     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 // };
+
 class Enemy{
     constructor(x,y,speed){
         this.sprite = 'images/enemy-bug.png';
@@ -28,6 +29,7 @@ class Enemy{
         this.speed = speed;
        
     }
+    // This function updates the enemy's position
     update(dt){
         if (this.x < 500){
             this.x += this.speed*dt;
@@ -37,11 +39,14 @@ class Enemy{
         }
     }
 
-
+    // This function draws the the enemies on the canvas
     render(){
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);  
     }
 }
+
+// This is a player class and initialises the player's x and y cordinates.
+// It initialises the left,right,downward and upward boundaries.
 class Player{
     constructor(){
         this.sprite = 'images/char-boy.png';
@@ -55,16 +60,7 @@ class Player{
         this.verticalMove = 30;
     }
     update(){
-        // if( player.x >= this.x -40 && player.x <=this.x + 40 ){
-        //     if( player.y >= this.y -40 && player.y <=  this.y+40 ){
-        //         player.x = 200;
-        //         player.y = 400;
-        //     }
-        // }   a.y + a.height > b.y) return true;
-
-        // if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
-        //     dy = -dy;
-        // }
+        // This for loop checks for collision between the player and the enemy.
         for (const enemy of allEnemies){
             if(this.x >= enemy.x && this.x <= enemy.x+30 && 
             this.y >= enemy.y && this.y <= enemy.y+30) {
@@ -72,35 +68,35 @@ class Player{
                 this.y=415;
             }
         }
-        // if (this.y<-20){
-        //     alert('you win')
-        // }
     }
-
+    // This function draws a player on the canvas
     render(){
         ctx.drawImage(Resources.get(this.sprite), this.x, this.y);  
     }
 
     handleInput(move){
-        // This if statement moves a player to the left
+        // This moves a player to the left
         // As long as they are not past their left boundary
         if(move=="left" && this.x>this.leftBoundary){
             this.x-=this.horizontalMove;
         }
+        // This moves a player upward
+        // As long as they are not past their upperboundary
         else if (move == "up" && this.y>this.upBoundary){
                 this.y-=this.verticalMove;
         }
+        // This moves a player to the right
+        // As long as they are not past their right boundary
         else if (move=="right" && this.x<this.rightBoundary){
                 this.x+=this.horizontalMove;
         }
+        // This moves a player downward
+        // As long as they are not past their bottom boundary
         else if (move=="down" && this.y<this.downBoundary){
             this.y+=this.verticalMove;
         }
     }
 }
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
 
 
 // Now instantiate your objects.

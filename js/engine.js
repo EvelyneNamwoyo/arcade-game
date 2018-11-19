@@ -158,14 +158,13 @@ var Engine = (function(global) {
         player.render();
     }
 
-    /* This function does nothing but it could have been a good place to
-     * handle game reset states - maybe a new game menu or a game over screen
-     * those sorts of things. It's only called once by the init() method.
-     */
+   
+    // This function helps display a win message and puts the player at the start.
     function reset() {
         if(player.y<-20){
             win.cancelAnimationFrame(animationId);
             dialog.showModal();
+            // This listens for when a player wants to restart the game after a win
             restart.addEventListener('click', function(){
                 dialog.close();
                 requestAnimationFrame(main)
@@ -175,7 +174,6 @@ var Engine = (function(global) {
         else{
             animationId = requestAnimationFrame(main);
         }
-        // noop
     }
     
     
