@@ -21,6 +21,7 @@
 //     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 // };
 
+// This is the enemy class re written in ES 6
 class Enemy{
     constructor(x,y,speed){
         this.sprite = 'images/enemy-bug.png';
@@ -47,6 +48,7 @@ class Enemy{
 
 // This is a player class and initialises the player's x and y cordinates.
 // It initialises the left,right,downward and upward boundaries.
+// It also inittialises the horizontal and vertical steps a player takes
 class Player{
     constructor(){
         this.sprite = 'images/char-boy.png';
