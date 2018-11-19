@@ -23,7 +23,8 @@ var Engine = (function(global) {
         canvas = doc.createElement('canvas'),
         ctx = canvas.getContext('2d'),
         lastTime,animationId,
-        dialog = document.getElementById('displayWin');
+        dialog = document.getElementById('displayWin'),
+        restart = document.getElementById('play_again');
 
     canvas.width = 505;
     canvas.height = 606;
@@ -64,7 +65,7 @@ var Engine = (function(global) {
      * game loop.
      */
     function init() {
-        reset();
+        // reset();
         lastTime = Date.now();
         main();
     }
@@ -164,13 +165,20 @@ var Engine = (function(global) {
     function reset() {
         if(player.y<-20){
             win.cancelAnimationFrame(animationId);
-            dialog.showModal()
+            dialog.showModal();
+            restart.addEventListener('click', function(){
+                dialog.close();
+                requestAnimationFrame(main)
+            });
+            player.y = 415;
         }
         else{
             animationId = requestAnimationFrame(main);
         }
         // noop
     }
+    
+    
 
     /* Go ahead and load all of the images we know we're going to need to
      * draw our game level. Then set init as the callback method, so that when
