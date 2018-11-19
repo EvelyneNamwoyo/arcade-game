@@ -104,15 +104,15 @@ class Player{
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 // Place the player object in a variable called player
- enemy1 = new Enemy(-100,100,100);
- enemy2 = new Enemy(-100,145,100);
- enemy3 = new Enemy(-100,230,100);
- enemy4 = new Enemy(-100,200,150);
- enemy5 = new Enemy(-100,145,80);
- enemy6 = new Enemy(-100,60,150);
- enemy7 = new Enemy(-100,145,200);
- enemy8 = new Enemy(-100,60,300);
- enemy9 = new Enemy(-100,230,250)
+ enemy1 = new Enemy(5,25,400);
+ enemy2 = new Enemy(0,145,400);
+ enemy3 = new Enemy(0,230,100);
+ enemy4 = new Enemy(10,200,150);
+ enemy5 = new Enemy(20,145,250);
+ enemy6 = new Enemy(10,55,150);
+ enemy7 = new Enemy(10,145,200);
+ enemy8 = new Enemy(0,60,300);
+ enemy9 = new Enemy(5,230,400)
 const allEnemies = [enemy1,enemy2,enemy3,enemy4,enemy5,enemy6,enemy7,enemy8,enemy9];
 const player = new Player();
 
